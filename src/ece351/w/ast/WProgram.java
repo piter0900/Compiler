@@ -129,7 +129,7 @@ public final class WProgram implements Examinable {
 	
 	@Override
 	public String toString() {
-		String a = null; 
+		String a = ""; 
 	//	System.out.println("---------------"+this.toString()); 
 		for (final Waveform w : waveforms) {
 			a += w.toString(); 

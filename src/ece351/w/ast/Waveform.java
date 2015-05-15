@@ -112,9 +112,14 @@ public final class Waveform implements Examinable {
 	@Override
 	public String toString() {
 		//String Tmp = this.name + ":" + " " + ; 
-		String tmp = this.name+":" + this.bits.toString() + ";"; 
-		tmp = tmp.replaceAll("(\\r|\\n|\\t)", " ");
-		
+		String bit1 = ""; 
+		for(String a: this.bits)
+		{
+			bit1 += ""; 
+			bit1 += a; 
+				
+		}
+		String tmp = this.name+":" + bit1 + ";";
 		
 		//System.out.println(this.bits.toString()); 
 		//System.out.println("this is tmp" + tmp); 

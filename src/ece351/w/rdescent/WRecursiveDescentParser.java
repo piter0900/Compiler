@@ -68,6 +68,7 @@ public final class WRecursiveDescentParser {
 	    		 
 	    	}
 	    	lexer.consume(";");
+
 	    	ImmutableList<String> Bits = ImmutableList.copyOf(bits); 
 	    	Waveform a = new Waveform(Bits, ID);
 	    	
