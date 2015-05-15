@@ -3,7 +3,7 @@
 # This information will not be used in determining your grade.
 # This information will be used to adjust the workload.
 # Round to the nearest integer please.
-lab0 0
+lab0 5
 lab1 0
 lab2 0
 lab3 0

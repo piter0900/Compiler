@@ -111,9 +111,12 @@ public final class Waveform implements Examinable {
 	
 	@Override
 	public String toString() {
-		// STUB: return "TODO"; // TODO: Waveform.toString()
-// TODO: 1 lines snipped
-throw new ece351.util.Todo351Exception();
+		//String Tmp = this.name + ":" + " " + ; 
+		String tmp = this.name.toString()+":" + this.bits.toString() + ";"; 
+		
+		System.out.println(this.bits.toString()); 
+		//System.out.println("this is tmp" + tmp); 
+		return tmp;
 	}
 
 	/**

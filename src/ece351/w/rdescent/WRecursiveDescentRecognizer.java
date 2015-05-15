@@ -56,7 +56,15 @@ public final class WRecursiveDescentRecognizer {
     }
 
     public void waveform() {
+    	lexer.consumeID(); 
+    	lexer.consume(":"); 
+    	while(lexer.inspect("1","0"," "))
+    	{
+    		lexer.consume("1","0"," ");
+    	}
+    	lexer.consume(";");
+    	
 // TODO: 10 lines snipped
-throw new ece351.util.Todo351Exception();
+//throw new ece351.util.Todo351Exception();
     }
 }

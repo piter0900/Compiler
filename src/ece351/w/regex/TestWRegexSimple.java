@@ -52,7 +52,7 @@ public class TestWRegexSimple {
 		this.regex = regex;
 	}
 	
-	@Parameterized.Parameters(name = "{0} ~ {1}")
+	@Parameterized.Parameters//(name = "{0} ~ {1}")
 	public static Iterable<Object[]> regexs() {
 		final List<String> regexs = TestWRegexSimpleData.regexs;
 		final int length = regexs.size();

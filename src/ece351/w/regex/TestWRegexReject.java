@@ -50,7 +50,7 @@ public final class TestWRegexReject {
 		this.wave = wave;
 	}
 
-	@Parameterized.Parameters(name = "{0}")
+	@Parameterized.Parameters//(name = "{0}")
 	public static Collection<Object[]> badWaveFiles() {
 		return TestInputs351.badWaveFiles();
 	}

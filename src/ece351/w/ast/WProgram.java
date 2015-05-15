@@ -129,8 +129,10 @@ public final class WProgram implements Examinable {
 	
 	@Override
 	public String toString() {
+	//	System.out.println("---------------"+this.toString()); 
+		return this.toString(); 
 // TODO: 6 lines snipped
-throw new ece351.util.Todo351Exception();
+//throw new ece351.util.Todo351Exception();
 	}
 
 	/**

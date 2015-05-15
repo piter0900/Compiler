@@ -29,7 +29,9 @@ package ece351.w.regex;
 import static org.junit.Assert.*;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -48,9 +50,11 @@ public final class TestWRegexAccept {
 	 * Now you have a fairly general regex. Copy and paste it into this static
 	 * variable and let's try to match it against all of the test wave files.
 	 */
-	final static String REGEX = "TODO";
+	final static String REGEX = "(\\s*[A-Za-z]*\\s*:([\\s]|[0-1])*\\s*;\\s*\n*)*";
 // TODO: 2 lines snipped
-
+	//static List<String> regexs = new ArrayList<String>();
+	
+	//static {regexs.add();}
 
 	
 	private final File wave;
@@ -59,7 +63,7 @@ public final class TestWRegexAccept {
 		this.wave = wave;
 	}
 
-	@Parameterized.Parameters(name = "{0}")
+	@Parameterized.Parameters//(name = "{0}")
 	public static Collection<Object[]> waveFiles() {
 		return TestInputs351.waveFiles();
 	}
