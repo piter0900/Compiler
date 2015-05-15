@@ -48,11 +48,11 @@ public final class WRecursiveDescentParser {
 
     public WProgram parse() {
     	
-    	ArrayList<String> bits = new ArrayList<>();
+    	
     	ArrayList<Waveform> waveforms = new ArrayList<>();
     	while(!lexer.inspectEOF()){
-	    	String ID = null; 
-	    	
+	    	String ID =""; 
+	    	ArrayList<String> bits = new ArrayList<>();
 	    	while(lexer.inspectID()){
 	    		ID += lexer.consumeID(); 
 	    	}
@@ -63,7 +63,7 @@ public final class WRecursiveDescentParser {
 	    	
 	    	while(lexer.inspect("1","0"," "))
 	    	{
-	    		bits.add(" ");
+	    		//bits.add(" ");
 	    		bits.add(lexer.consume("1","0"," "));
 	    		 
 	    	}
