@@ -129,8 +129,12 @@ public final class WProgram implements Examinable {
 	
 	@Override
 	public String toString() {
+		String a = null; 
 	//	System.out.println("---------------"+this.toString()); 
-		return this.toString(); 
+		for (final Waveform w : waveforms) {
+			a += w.toString(); 
+		}
+		return a; 
 // TODO: 6 lines snipped
 //throw new ece351.util.Todo351Exception();
 	}

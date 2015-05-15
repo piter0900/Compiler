@@ -26,6 +26,8 @@
 
 package ece351.w.rdescent;
 
+import java.util.ArrayList;
+
 import org.parboiled.common.ImmutableList;
 
 import ece351.util.Lexer;
@@ -45,25 +47,44 @@ public final class WRecursiveDescentParser {
     }
 
     public WProgram parse() {
-    	String ID = null; 
     	
-    	while(lexer.inspectID()){
-    		ID += lexer.consumeID(); 
-    	}
+    	ArrayList<String> bits = new ArrayList<>();
+    	ArrayList<Waveform> waveforms = new ArrayList<>();
+    	while(!lexer.inspectEOF()){
+	    	String ID = null; 
+	    	
+	    	while(lexer.inspectID()){
+	    		ID += lexer.consumeID(); 
+	    	}
+	
+	    	lexer.consume(":"); 
+	    	
+	    	
+	    	
+	    	while(lexer.inspect("1","0"," "))
+	    	{
+	    		bits.add(" ");
+	    		bits.add(lexer.consume("1","0"," "));
+	    		 
+	    	}
+	    	lexer.consume(";");
+	    	ImmutableList<String> Bits = ImmutableList.copyOf(bits); 
+	    	Waveform a = new Waveform(Bits, ID);
+	    	
+	    	waveforms.add(a); 
+	    	
 
-    	lexer.consume(":"); 
-    	
-    	String bits = null;  
-    	while(lexer.inspect("1","0"," "))
-    	{
-    		bits += lexer.consume("1","0"," ");
+	    	
+	    	 
+	    	
+	    	for (String b : Bits) {
+	    	    System.out.print(b);
+	    	}
     	}
-    	lexer.consume(";");
-    	ImmutableList<String> Bits = ImmutableList.of(bits);
-    	Waveform a = new Waveform(Bits, ID);
-    	ImmutableList<Waveform> waveform = ImmutableList.of(a);
+    	
+    	ImmutableList<Waveform> waveform = ImmutableList.copyOf(waveforms);
     	WProgram Final = new WProgram(waveform); 
-    	return Final; 
+    	return Final;
 
     	// STUB: return null;
     	
