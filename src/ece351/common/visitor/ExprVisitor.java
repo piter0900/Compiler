@@ -26,8 +26,6 @@
 
 package ece351.common.visitor;
 
-import org.parboiled.common.ImmutableList;
-
 import ece351.common.ast.AndExpr;
 import ece351.common.ast.AssignmentStatement;
 import ece351.common.ast.BinaryExpr;
@@ -41,16 +39,11 @@ import ece351.common.ast.NaryExpr;
 import ece351.common.ast.NaryOrExpr;
 import ece351.common.ast.NotExpr;
 import ece351.common.ast.OrExpr;
-import ece351.common.ast.Statement;
 import ece351.common.ast.UnaryExpr;
 import ece351.common.ast.VarExpr;
 import ece351.common.ast.XNOrExpr;
 import ece351.common.ast.XOrExpr;
 import ece351.f.ast.FProgram;
-import ece351.vhdl.ast.DesignUnit;
-import ece351.vhdl.ast.IfElseStatement;
-import ece351.vhdl.ast.Process;
-import ece351.vhdl.ast.VProgram;
 
 public abstract class ExprVisitor {
 	public abstract Expr visitConstant(ConstantExpr e);
