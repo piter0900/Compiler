@@ -27,7 +27,6 @@
 package ece351.common.ast;
 
 import ece351.common.visitor.ExprVisitor;
-import ece351.vhdl.VConstants;
 
 public final class NAndExpr extends CommutativeBinaryExpr {
 	
@@ -40,7 +39,7 @@ public final class NAndExpr extends CommutativeBinaryExpr {
     }
 	@Override
 	public String operator() {
-		return VConstants.NAND;
+		return Constants.NAND;
 	}
 	@Override
 	public BinaryExpr newBinaryExpr(final Expr left, final Expr right) {

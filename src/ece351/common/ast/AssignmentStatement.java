@@ -30,7 +30,6 @@ import org.parboiled.common.ImmutableList;
 
 import ece351.f.ast.FProgram;
 import ece351.util.Examinable;
-import ece351.vhdl.ast.Statement;
 
 public final class AssignmentStatement extends Statement implements Examinable {
 

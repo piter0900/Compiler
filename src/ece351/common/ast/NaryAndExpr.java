@@ -29,7 +29,6 @@ package ece351.common.ast;
 import java.util.List;
 
 import ece351.common.visitor.ExprVisitor;
-import ece351.vhdl.VConstants;
 
 
 public final class NaryAndExpr extends NaryExpr {
@@ -49,7 +48,7 @@ public final class NaryAndExpr extends NaryExpr {
 
 	@Override
 	public String operator() {
-		return VConstants.AND;
+		return Constants.AND;
 	}
 
 	@Override

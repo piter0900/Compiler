@@ -26,25 +26,14 @@
 
 package ece351.common.ast;
 
-import ece351.common.visitor.ExprVisitor;
+public interface Constants {
 
+	public final String AND = "and";
+	public final String OR = "or";
+	public final String NOT = "not";
+	public final String XOR = "xor";
+	public final String NAND = "nand";
+	public final String NOR = "nor";
+	public final String XNOR = "xnor";
 
-public final class XNOrExpr extends CommutativeBinaryExpr {
-
-	public XNOrExpr(Expr left, Expr right) {
-		super(left,right);
-	}
-	
-    public Expr accept(final ExprVisitor v){
-    	return v.visitXNOr(this);
-    }
-
-	@Override
-	public String operator() {
-		return Constants.XNOR;
-	}
-	@Override
-	public BinaryExpr newBinaryExpr(final Expr left, final Expr right) {
-		return new XNOrExpr(left, right);
-	}
 }

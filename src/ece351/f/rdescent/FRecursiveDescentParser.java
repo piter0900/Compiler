@@ -29,6 +29,7 @@ package ece351.f.rdescent;
 import ece351.common.ast.AndExpr;
 import ece351.common.ast.AssignmentStatement;
 import ece351.common.ast.ConstantExpr;
+import ece351.common.ast.Constants;
 import ece351.common.ast.Expr;
 import ece351.common.ast.NotExpr;
 import ece351.common.ast.OrExpr;
@@ -36,11 +37,10 @@ import ece351.common.ast.VarExpr;
 import ece351.f.ast.FProgram;
 import ece351.util.CommandLine;
 import ece351.util.Lexer;
-import ece351.vhdl.VConstants;
 
 
 
-public final class FRecursiveDescentParser implements VConstants {
+public final class FRecursiveDescentParser implements Constants {
    
 	// instance variables
 	private final Lexer lexer;

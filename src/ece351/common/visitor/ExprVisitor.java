@@ -41,6 +41,7 @@ import ece351.common.ast.NaryExpr;
 import ece351.common.ast.NaryOrExpr;
 import ece351.common.ast.NotExpr;
 import ece351.common.ast.OrExpr;
+import ece351.common.ast.Statement;
 import ece351.common.ast.UnaryExpr;
 import ece351.common.ast.VarExpr;
 import ece351.common.ast.XNOrExpr;
@@ -49,7 +50,6 @@ import ece351.f.ast.FProgram;
 import ece351.vhdl.ast.DesignUnit;
 import ece351.vhdl.ast.IfElseStatement;
 import ece351.vhdl.ast.Process;
-import ece351.vhdl.ast.Statement;
 import ece351.vhdl.ast.VProgram;
 
 public abstract class ExprVisitor {

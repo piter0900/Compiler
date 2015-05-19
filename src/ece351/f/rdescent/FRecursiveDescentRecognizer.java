@@ -26,11 +26,11 @@
 
 package ece351.f.rdescent;
 
+import ece351.common.ast.Constants;
 import ece351.util.CommandLine;
 import ece351.util.Lexer;
-import ece351.vhdl.VConstants;
 
-public final class FRecursiveDescentRecognizer implements VConstants {
+public final class FRecursiveDescentRecognizer implements Constants {
    
     private final Lexer lexer;
 

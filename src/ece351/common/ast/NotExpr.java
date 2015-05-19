@@ -27,7 +27,6 @@
 package ece351.common.ast;
 
 import ece351.common.visitor.ExprVisitor;
-import ece351.vhdl.VConstants;
 
 public final class NotExpr extends UnaryExpr{
 	public NotExpr(Expr argument) {
@@ -59,7 +58,7 @@ throw new ece351.util.Todo351Exception();
 	
 	@Override
 	public String operator() {
-		return VConstants.NOT;
+		return Constants.NOT;
 	}
 	@Override
 	public UnaryExpr newUnaryExpr(final Expr expr) {

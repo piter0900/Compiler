@@ -27,7 +27,6 @@
 package ece351.common.ast;
 
 import ece351.common.visitor.ExprVisitor;
-import ece351.vhdl.VConstants;
 
 
 public final class OrExpr extends CommutativeBinaryExpr{
@@ -50,7 +49,7 @@ public final class OrExpr extends CommutativeBinaryExpr{
 	}
 	@Override
 	public String operator() {
-		return VConstants.OR;
+		return Constants.OR;
 	}
 	@Override
 	public BinaryExpr newBinaryExpr(final Expr left, final Expr right) {
