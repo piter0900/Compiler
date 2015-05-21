@@ -127,15 +127,8 @@ public final class FProgram implements Examinable {
     public String toString() {
 		if (formulas == null || formulas.isEmpty()) return "";
 		final String sep = System.getProperty("line.separator");
-    	final StringBuilder b = new StringBuilder();
-    	int counter = 1; // avoid last separator
-    	final int size = formulas.size();
-    	for (final AssignmentStatement f : formulas) {
-    		b.append(f.toString());
-    		counter ++;
-    		if (counter < size) b.append(sep);
-    	}
-    	return b.toString();
+// TODO: 9 lines snipped
+throw new ece351.util.Todo351Exception();
     }
     
 	@Override

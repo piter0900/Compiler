@@ -66,7 +66,8 @@ public final class AssignmentStatement extends Statement implements Examinable {
 	
     @Override
     public String toString() {
-        return outputVar + " <= " + expr + ";";
+// TODO: 1 lines snipped
+throw new ece351.util.Todo351Exception();
     }
 
 	@Override
