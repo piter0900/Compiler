@@ -115,14 +115,14 @@ public final class Waveform implements Examinable {
 		String bit1 = ""; 
 		for(String a: this.bits)
 		{
-			bit1 += ""; 
+			bit1 += " "; 
 			bit1 += a; 
 				
 		}
-		String tmp = this.name+":" + bit1 + ";";
+		String tmp = this.name+":" + bit1 + ";"+"\n";
 		
 		//System.out.println(this.bits.toString()); 
-		//System.out.println("this is tmp" + tmp); 
+		//System.out.ln("this is tmp" + tmp); 
 		return tmp;
 	}
 

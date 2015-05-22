@@ -40,8 +40,9 @@ public final class TestObjectContract extends TestObjectContractBase {
 		// this is an anonymous inner class that is a subclass of Object
 		return new Object() {
 			public boolean equals(Object ob) { 
+				return false; 
 // TODO: 1 lines snipped
-throw new ece351.util.Todo351Exception();
+//throw new ece351.util.Todo351Exception();
 			}
 		};
 	}
@@ -54,8 +55,9 @@ throw new ece351.util.Todo351Exception();
 		// this is an anonymous inner class that is a subclass of Object
 		return new Object() {
 			public boolean equals(Object ob) { 
+				return true; 
 // TODO: 1 lines snipped
-throw new ece351.util.Todo351Exception();
+//throw new ece351.util.Todo351Exception();
 			}
 		};
 	}
@@ -69,8 +71,10 @@ throw new ece351.util.Todo351Exception();
 		return new Object() {
 			private boolean flag = true;
 			public boolean equals(Object ob) { 
+				flag = !flag; 
+				return flag; 
 // TODO: 2 lines snipped
-throw new ece351.util.Todo351Exception();
+//throw new ece351.util.Todo351Exception();
 			}
 		};
 	}
@@ -80,9 +84,11 @@ throw new ece351.util.Todo351Exception();
 	 */
 	@Override
 	SymmetryBreaker[] constructSymmetryBreakers() {
+		
 		final SymmetryBreaker[] result = new SymmetryBreaker[2];
+		return ((SymmetryBreaker[1] == SymmetryBreaker[0]) && (SymmetryBreaker[0] == SymmetryBreaker[1])); 
 // TODO: 3 lines snipped
-throw new ece351.util.Todo351Exception();
+//throw new ece351.util.Todo351Exception();
 	}
 
 	

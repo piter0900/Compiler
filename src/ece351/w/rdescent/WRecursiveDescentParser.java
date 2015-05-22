@@ -73,14 +73,8 @@ public final class WRecursiveDescentParser {
 	    	Waveform a = new Waveform(Bits, ID);
 	    	
 	    	waveforms.add(a); 
-	    	
 
-	    	
-	    	 
-	    	
-	    	for (String b : Bits) {
-	    	    System.out.print(b);
-	    	}
+
     	}
     	
     	ImmutableList<Waveform> waveform = ImmutableList.copyOf(waveforms);

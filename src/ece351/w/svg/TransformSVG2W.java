@@ -33,6 +33,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+
 import org.parboiled.common.ImmutableList;
 
 import ece351.w.ast.WProgram;
@@ -60,22 +61,39 @@ public final class TransformSVG2W {
 		final Set<Integer> setY = new LinkedHashSet<Integer>();
 
 		// the set of line segments for the current waveform
-		final List<Line> extract = new ArrayList<Line>();
+
 		
 		// lines are taken off the global list and added to the extract list
 		// then the extract list is used to construct a new waveform object 
 		// finally, the extract list is cleared and the process repeats
-		while(!lines.isEmpty()) {
-			final Line line = lines.remove(0);
+		int flag = 100; 
 
-// TODO: 16 lines snipped
-throw new ece351.util.Todo351Exception();
+		final List<Line> extract = new ArrayList<Line>();
+		while(!lines.isEmpty()) {
+			System.out.println("New WAVEFORM");
+			while((!lines.isEmpty())&&((lines.get(0).y1 - flag) <= 100)){
+				final Line line = lines.remove(0);
+				extract.add(line);
+//				System.out.println("Line = " + line.toString()); 
+				//System.out.println("added line"); 
+				
+			}
+			
+			if((!extract.isEmpty()) && (!pins.isEmpty())) {
+				waveforms = waveforms.append(transformLinesToWaveform(extract, pins.remove(0)));
+			}
+			flag+=200; 
+			extract.clear(); 
+
 		}
+		
+			
+// TODO: 16 lines snipped
+//throw new ece351.util.Todo351Exception();
+		
 
 		// the last waveform
-		if(!extract.isEmpty()) {
-			waveforms = waveforms.append(transformLinesToWaveform(extract, pins));
-		}
+
 
 		return new WProgram(waveforms);
 	}
@@ -83,29 +101,79 @@ throw new ece351.util.Todo351Exception();
 	/**
 	 * Transform a list of Line to an instance of Waveform
 	 */
-	private static Waveform transformLinesToWaveform(final List<Line> lines, final List<Pin> pins) {
+//	private static Waveform transformLinesToWaveform(final List<Line> lines, final List<Pin> pins) {
+	private static Waveform transformLinesToWaveform(final List<Line> lines, final Pin pin) {
 		if(lines.isEmpty()) return null;
 
 		// Sort by the middle of two x-coordinates.
 		Collections.sort(lines, COMPARE_X);
+		
 
 		// Place holder for the list of bits.
-		ImmutableList<String> bits = ImmutableList.of();
-
+		ArrayList<String> bitAdd = new ArrayList<>();
 		// The first line of the waveform.
 		final Line first = lines.get(0);
+		int prevBit = 0; 
+		System.out.println("lines.size = " + lines.size());
+		for(int i = 0; i < lines.size(); i++) {
+			System.out.println("current line is " +lines.get(i).toString());
 
-		for(int i = 1; i < lines.size(); i++) {
-			// If a dot, skip it.
-// TODO: 10 lines snipped
-throw new ece351.util.Todo351Exception();
+			//System.out.println("i is "+ i ); 
+			if((lines.get(i).x2 == (lines.get(i).x1 + 100)) && (i!=0) && (lines.get(i).y1 != (lines.get(i-1).y1))){}
+			else{
+				if(i == 0){
+					if(first.y2-first.y1< 0){
+						bitAdd.add("1"); 
+						prevBit=1;
+						
+					}
+					else {
+						bitAdd.add("0");
+						prevBit = 0;
+					}
+					//System.out.println("new wave " + prevBit);
+				}
+				else{
+					
+					if(lines.get(i).y2 != lines.get(i).y1){
+						prevBit^=1;
+						//System.out.println("i = " + i +"toggleing to "+ prevBit + "x1 = " + lines.get(i-1).x1 + "y1 = " + lines.get(i-1).y1 + "x2 = " + lines.get(i-1).x2 + "y2 = " + lines.get(i-1).y2);
+						bitAdd.add(Integer.toString(prevBit)); 
+						
+					}
+					
+					else{
+						//System.out.println("i = " + i +"not toggling " + prevBit + "x1 = " + lines.get(i-1).x1 + "y1 = " + lines.get(i-1).y1 + "x2 = " + lines.get(i-1).x2 + "y2 = " + lines.get(i-1).y2);
+						bitAdd.add(Integer.toString(prevBit));
+					}
+					
+					System.out.println("lines processed " +lines.get(i).toString());
+				}
+				/*if(lines.get(i).x2 == lines.get(i+1).x1){
+					prevBit^=1;
+					bitAdd.add(Integer.toString(prevBit));
+				}
+				else{
+					bitAdd.add(Integer.toString(prevBit));
+					i++; */
+			}
+				
+		
+
+			
+			
+			
 		}
+		ImmutableList<String> bits = ImmutableList.copyOf(bitAdd); 
 
 		// Get the corresponding id for this waveform.
-		String id = "UNKNOWN";
+		String id = pin.id;
+		Waveform waveform = new Waveform(bits, id); 
+		return waveform; 
+		
 		//return new Waveform(bits, id); // construct a new waveform object
 // TODO: 9 lines snipped
-throw new ece351.util.Todo351Exception();
+//throw new ece351.util.Todo351Exception();
 
 	}
 

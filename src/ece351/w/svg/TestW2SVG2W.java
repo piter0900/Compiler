@@ -102,7 +102,10 @@ public final class TestW2SVG2W extends BaseTest351 {
 		ExaminableProperties.checkAllTernary(originalWP, staffwp, studentwp);
 
 		// W equivalence checks
+		System.out.println("OriginalWP:     "+originalWP.toString());
+		System.out.println("StudentWP:     "+studentwp.toString());
 		assertTrue(originalWP.equivalent(studentwp));
+		
 		assertTrue(originalWP.equivalent(staffwp));
 		assertTrue(staffwp.equivalent(studentwp));
 	}

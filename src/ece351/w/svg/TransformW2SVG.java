@@ -105,20 +105,62 @@ public final class TransformW2SVG {
 
 			// advance the x position to start drawing
 			x=100;
-
+			int PREV = 0;
+			int Flag = 0; 
 			// loop on bits
 			for (final String bit : w.bits) {
+				if(Flag == 0){
+					if(Integer.parseInt(bit) == 0){
+						out.println(Line.toSVG(x,y_mid,x,y_mid+y_off ));						
+						y_prev = y_mid+y_off; 
+						out.println(Line.toSVG(x,y_prev,x+WIDTH,y_prev));
+						x = x + WIDTH; 
+						
+					}
+					else{
+						out.println(Line.toSVG(x,y_mid,x,y_mid-y_off ));
+						y_prev = y_mid-y_off; 
+						out.println(Line.toSVG(x,y_prev,x+WIDTH,y_prev));
+						x = x + WIDTH; 
+					}
+					PREV = Integer.parseInt(bit); 
+					Flag++; 
+				}
+				else{
+					if(Integer.parseInt(bit) == PREV){
+						out.println(Line.toSVG(x,y_prev,x,y_prev ));
+						out.println(Line.toSVG(x,y_prev,x+WIDTH,y_prev ));
+						x = x + WIDTH; 
+					}
+					else if(Integer.parseInt(bit) < PREV){
+						out.println(Line.toSVG(x,y_prev,x,y_prev+2*y_off ));
+						y_prev = y_prev+2*y_off; 
+						out.println(Line.toSVG(x,y_prev,x+WIDTH,y_prev));
+						x = x + WIDTH; 
+					}
+					else if(Integer.parseInt(bit) > PREV){
+						out.println(Line.toSVG(x,y_prev,x,y_prev-2*y_off ));
+						y_prev = y_prev-2*y_off; 
+						out.println(Line.toSVG(x,y_prev,x+WIDTH,y_prev));
+						x = x + WIDTH; 
+					}
+					PREV = Integer.parseInt(bit); 
+				}
+
+				
 				// set the y position according to the value of the bit
 				// draw the vertical line
 				// draw the horizontal line
 				// get ready for the next bit
 // TODO: 17 lines snipped
-throw new ece351.util.Todo351Exception();
+//throw new ece351.util.Todo351Exception();
 			}
+			y_mid += 4*y_off; 
+			y_prev = y_mid;
 			
 			// advance the y position for the next pin
 // TODO: 4 lines snipped
-throw new ece351.util.Todo351Exception();
+//throw new ece351.util.Todo351Exception();
 
 		}
 
