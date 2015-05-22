@@ -86,9 +86,9 @@ public final class TestObjectContract extends TestObjectContractBase {
 	SymmetryBreaker[] constructSymmetryBreakers() {
 		
 		final SymmetryBreaker[] result = new SymmetryBreaker[2];
-		return ((SymmetryBreaker[1] == SymmetryBreaker[0]) && (SymmetryBreaker[0] == SymmetryBreaker[1])); 
+	//	return ((SymmetryBreaker[1] == SymmetryBreaker[0]) && (SymmetryBreaker[0] == SymmetryBreaker[1])); 
 // TODO: 3 lines snipped
-//throw new ece351.util.Todo351Exception();
+		throw new ece351.util.Todo351Exception();
 	}
 
 	
